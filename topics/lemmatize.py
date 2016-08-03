@@ -2,13 +2,13 @@
 
 import os
 import sys
-import re
+import re # regular expressions escaping
 import subprocess
 
 def lemmatize( text ):
 
     text = text.decode('utf8')
-    text = re.sub( ' +',' ', text )
+    text = re.sub( ' +',' ', text ) ## substitute ' +' with ' ' if found; else, return text
     text = re.sub( u'[^a-zA-ZöäåÖÄÅ]' , ' ' , text )
     text = re.sub( ' +',' ', text )
     text = text.replace('"', '' ) ## no "
